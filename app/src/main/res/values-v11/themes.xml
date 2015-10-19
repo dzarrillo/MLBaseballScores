@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- the theme applied to the application or activity -->
+
+    <style name="CustomActionBarTheme" parent="Theme.AppCompat.Light">
+        <item name="android:actionBarStyle">@style/MyActionBar</item>
+        <item name="android:actionMenuTextColor">@color/black</item>
+        <item name="android:actionButtonStyle">@style/MyButtonStyle</item>
+        <item name="android:popupMenuStyle">@style/MyPopUpMenu</item>
+        <item name="android:itemBackground">@drawable/actionbar_blue_gradient</item>
+
+        <!-- Support library compatibility -->
+        <item name="actionBarStyle">@style/MyActionBar</item>
+        <item name="actionMenuTextColor">@color/black</item>
+        <item name="actionButtonStyle">@style/MyButtonStyle</item>
+        <item name="popupMenuStyle">@style/MyPopUpMenu</item>
+    </style>
+
+    <!-- ActionBar styles -->
+    <style name="MyActionBar" parent="@style/Widget.AppCompat.ActionBar">
+        <item name="android:background">@drawable/actionbar_blue_gradient</item>
+        <!-- Support library compatibility -->
+        <item name="background">@drawable/actionbar_blue_gradient</item>
+    </style>
+
+    <!-- actionButton styles -->
+    <style name="MyButtonStyle" parent="@style/Widget.AppCompat.ActionButton">
+        <item name="android:background">@drawable/actionbar_item_pressed</item>
+        <!-- Support library compatibility -->
+        <item name="background">@drawable/actionbar_item_pressed</item>
+    </style>
+
+    <!-- PopupMenu styles -->
+    <style name="MyPopUpMenu" parent="@style/Widget.AppCompat.ListPopupWindow">
+        <item name="android:background">@color/royal_blue</item>
+        <item name="android:popupBackground">@color/royal_blue</item>
+        <!-- Support library compatibility -->
+        <item name="background">@color/royal_blue</item>
+    </style>
+
+    <!-- OverFlow styles -->
+    <style name="MyListPopUp" parent="@style/Widget.AppCompat.ListPopupWindow">
+        <item name="android:background">@color/royal_blue</item>
+        <item name="android:popupBackground">@drawable/actionbar_blue_gradient</item>
+        <!-- Support library compatibility -->
+        <item name="background">@color/royal_blue</item>
+    </style>
+
+</resources>
