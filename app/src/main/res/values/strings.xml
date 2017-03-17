@@ -1,7 +1,5 @@
 <resources>
     <string name="app_name">ML Baseball Scores</string>
-
-    <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
     <string name="baseBallScores">Baseball Scores</string>
 </resources>
