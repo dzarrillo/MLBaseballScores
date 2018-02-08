@@ -24,7 +24,7 @@ import java.util.List;
 /**
  * Created by dzarrillo on 8/25/2015.
  */
-public class BaseballScores extends Fragment implements TextView.OnTouchListener {
+public class ScoresFragment extends Fragment implements TextView.OnTouchListener {
     private TextView tvBaseballScores, tvScores, tvDate;
     private int year, month, day;
     private String sMonth, sDay;
@@ -37,7 +37,7 @@ public class BaseballScores extends Fragment implements TextView.OnTouchListener
     }
     private OnTouchBaseballDate mDateCallback;
 
-    public BaseballScores(){}
+    public ScoresFragment(){}
 
     @Override
     public void onCreate(Bundle savedInstanceState)  {
@@ -82,7 +82,7 @@ public class BaseballScores extends Fragment implements TextView.OnTouchListener
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        View v = inflater.inflate(R.layout.baseball_scores, container, false);
+        View v = inflater.inflate(R.layout.fragment_scores, container, false);
 
         tvBaseballScores = (TextView) v.findViewById(R.id.tvBaseballScores);
         tvScores = (TextView) v.findViewById(R.id.tvScores);
