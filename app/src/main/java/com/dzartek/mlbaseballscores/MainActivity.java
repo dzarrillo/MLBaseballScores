@@ -2,11 +2,11 @@ package com.dzartek.mlbaseballscores;
 
 import android.app.FragmentTransaction;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 
-public class MainActivity extends ActionBarActivity implements BaseballScores.OnTouchBaseballDate,
+public class MainActivity extends AppCompatActivity implements ScoresFragment.OnTouchBaseballDate,
     DateDialog.OnFragmentDialogDateSet{
 
     @Override
@@ -14,11 +14,11 @@ public class MainActivity extends ActionBarActivity implements BaseballScores.On
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        BaseballScores baseballScores = new BaseballScores();
+        ScoresFragment scoresFragment = new ScoresFragment();
 
         getSupportFragmentManager()
                 .beginTransaction()
-                .add(R.id.fragmentHolder, baseballScores)
+                .add(R.id.fragmentHolder, scoresFragment)
                 .commit();
 
     }
@@ -62,20 +62,20 @@ public class MainActivity extends ActionBarActivity implements BaseballScores.On
     public void onDialogDateSet(int year, int month, int day) {
         //Toast.makeText(this, "MainActivity - Selected date: " + year + "/" + month + "/" + day, Toast.LENGTH_LONG).show();
 
-        /*  Send this to BaseballScores fragment.
+        /*  Send this to ScoresFragment fragment.
 
          */
-        BaseballScores baseballScores = new BaseballScores();
+        ScoresFragment scoresFragment = new ScoresFragment();
 
         Bundle b = new Bundle();
         b.putInt("Year", year);
         b.putInt("Month", month);
         b.putInt("Day", day);
-        baseballScores.setArguments(b);
+        scoresFragment.setArguments(b);
 
         getSupportFragmentManager()
                 .beginTransaction()
-                .replace(R.id.fragmentHolder, baseballScores)
+                .replace(R.id.fragmentHolder, scoresFragment)
                 .addToBackStack(null)
                 .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
                 .commit();

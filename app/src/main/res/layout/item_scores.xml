@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/cardViewItemScores"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/relativeItemScores"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <TextView
+            android:id="@+id/textViewHomeTeam"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="46dp"
+            android:text="Yankees" />
+
+        <TextView
+            android:id="@+id/textViewRun"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="36dp"
+            android:layout_marginTop="19dp"
+            android:layout_toEndOf="@+id/textViewHomeTeam"
+            android:text="@string/runs" />
+
+        <TextView
+            android:id="@+id/textViewHits"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/textViewRun"
+            android:layout_centerHorizontal="true"
+            android:text="@string/hits" />
+
+        <TextView
+            android:id="@+id/textViewErrors"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/textViewHits"
+            android:layout_marginStart="35dp"
+            android:layout_toEndOf="@+id/textViewHits"
+            android:text="@string/errors" />
+
+        <TextView
+            android:id="@+id/textViewHscore"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/textViewRun"
+            android:layout_alignBaseline="@+id/textViewHomeTeam"
+            android:layout_marginTop="10dp"
+            android:text="5" />
+
+        <TextView
+            android:id="@+id/textViewHhits"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/textViewHscore"
+            android:layout_alignStart="@+id/textViewHits"
+            android:text="12" />
+
+        <TextView
+            android:id="@+id/textViewHerrors"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/textViewHhits"
+            android:layout_alignStart="@+id/textViewErrors"
+            android:text="0" />
+
+        <TextView
+            android:id="@+id/textViewAwayTeam"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/textViewHomeTeam"
+            android:layout_below="@+id/textViewHomeTeam"
+            android:layout_marginTop="18dp"
+            android:text="Indians" />
+
+        <TextView
+            android:id="@+id/textViewAscore"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/textViewAwayTeam"
+            android:layout_alignStart="@+id/textViewRun"
+            android:text="3" />
+
+        <TextView
+            android:id="@+id/textViewAhits"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/textViewAscore"
+            android:layout_alignStart="@+id/textViewHits"
+            android:text="12" />
+
+        <TextView
+            android:id="@+id/textViewAerrors"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/textViewAwayTeam"
+            android:layout_alignStart="@+id/textViewErrors"
+            android:text="0" />
+    </RelativeLayout>
+
+</android.support.v7.widget.CardView>
