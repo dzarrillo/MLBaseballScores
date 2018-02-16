@@ -21,18 +21,16 @@ import butterknife.ButterKnife;
 
 public class ScoresAdapter extends RecyclerView.Adapter<ScoresAdapter.ScoresViewHolder>{
     private final String TAG = ScoresAdapter.class.getName();
-    private Context mContext;
     private List<Baseball> mBaseballList = new ArrayList<>();
 
-    public ScoresAdapter(Context mContext, List<Baseball> mBaseballList) {
-        this.mContext = mContext;
+    public ScoresAdapter(List<Baseball> mBaseballList) {
         this.mBaseballList = mBaseballList;
     }
 
     @Override
     public ScoresViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         if(parent instanceof RecyclerView){
-            View v = LayoutInflater.from(mContext).inflate(R.layout.item_scores, parent, false);
+            View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_scores, parent, false);
             v.setFocusable(true);
             return new ScoresViewHolder(v);
         } else {
@@ -43,15 +41,16 @@ public class ScoresAdapter extends RecyclerView.Adapter<ScoresAdapter.ScoresView
     @Override
     public void onBindViewHolder(ScoresViewHolder holder, int position) {
         String val = "0";
+        holder.textViewStatus.setText(mBaseballList.get(holder.getAdapterPosition()).getStatus());
         holder.textViewHomeTeam.setText(mBaseballList.get(holder.getAdapterPosition()).getHomeTeam());
         holder.textViewHscore.setText(mBaseballList.get(holder.getAdapterPosition()).getHomeScore());
-        holder.textViewHhits.setText(val);
-        holder.textViewHomeTeam.setText(val);
+        holder.textViewHhits.setText(mBaseballList.get(holder.getAdapterPosition()).getHomeHits());
+        holder.textViewHerrors.setText(mBaseballList.get(holder.getAdapterPosition()).getHomeErrors());
 
         holder.textViewAwayTeam.setText(mBaseballList.get(holder.getAdapterPosition()).getAwayTeam());
-        holder.textViewHscore.setText(mBaseballList.get(holder.getAdapterPosition()).getAwayScore());
-        holder.textViewHhits.setText(val);
-        holder.textViewHomeTeam.setText(val);
+        holder.textViewAscore.setText(mBaseballList.get(holder.getAdapterPosition()).getAwayScore());
+        holder.textViewAhits.setText(mBaseballList.get(holder.getAdapterPosition()).getAwayHits());
+        holder.textViewAerrors.setText(mBaseballList.get(holder.getAdapterPosition()).getAwayErrors());
     }
 
     @Override
@@ -59,8 +58,14 @@ public class ScoresAdapter extends RecyclerView.Adapter<ScoresAdapter.ScoresView
         return mBaseballList != null ? mBaseballList.size() : 0;
     }
 
+    public void updateData(List<Baseball> mBaseballList){
+        this.mBaseballList.clear();
+        this.mBaseballList = mBaseballList;
+        this.notifyDataSetChanged();
+    }
 
     public class ScoresViewHolder extends RecyclerView.ViewHolder{
+        @BindView(R.id.textViewStatus) TextView textViewStatus;
         @BindView(R.id.textViewHomeTeam) TextView textViewHomeTeam;
         @BindView(R.id.textViewHscore) TextView textViewHscore;
         @BindView(R.id.textViewHhits) TextView textViewHhits;

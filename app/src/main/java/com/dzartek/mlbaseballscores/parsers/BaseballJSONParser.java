@@ -42,9 +42,30 @@ public class BaseballJSONParser {
                 JSONObject objLineScore = obj.getJSONObject("linescore");
                 // Get the r object for runs
                 JSONObject objR = objLineScore.getJSONObject("r");
-
                 baseball.setHomeScore(objR.getString("home"));
                 baseball.setAwayScore(objR.getString("away"));
+                // Get the h object for hits
+                JSONObject objH = objLineScore.getJSONObject("h");
+                baseball.setHomeHits(objH.getString("home"));
+                baseball.setAwayHits(objH.getString("away"));
+                // Get the e object for errors
+                JSONObject objE = objLineScore.getJSONObject("e");
+                baseball.setHomeErrors(objE.getString("home"));
+                baseball.setAwayErrors(objE.getString("away"));
+
+                // get winning_pitcher object
+                JSONObject objWPitcher = obj.getJSONObject("winning_pitcher");
+                baseball.setWinningPitcher(objWPitcher.getString("first")
+                        + " " + objWPitcher.getString("last"));
+                baseball.setWinningWins(objWPitcher.getString("wins"));
+                baseball.setWinningLosses(objWPitcher.getString("losses"));
+
+                // get losing_pitcher object
+                JSONObject objLPitcher = obj.getJSONObject("losing_pitcher");
+                baseball.setLosingPitcher(objLPitcher.getString("first")
+                        + " " + objLPitcher.getString("last"));
+                baseball.setLosingWins(objWPitcher.getString("wins"));
+                baseball.setLosingLosses(objWPitcher.getString("losses"));
 
                 // Get the status of the game
                 JSONObject objrStatus = obj.getJSONObject("status");
