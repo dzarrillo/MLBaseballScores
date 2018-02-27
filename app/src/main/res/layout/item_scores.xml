@@ -113,6 +113,74 @@
             android:layout_alignStart="@+id/textViewErrors"
             android:text="0" />
 
+        <TextView
+            android:id="@+id/textViewWin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textViewAwayTeam"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:text="@string/win" />
+
+        <TextView
+            android:id="@+id/textViewWinPitcher"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textViewAwayTeam"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_alignBaseline="@id/textViewWin"
+            android:layout_toEndOf="@id/textViewWin"
+            android:text="Tom Seaver" />
+
+        <TextView
+            android:id="@+id/textViewWinPitcherRec"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textViewAwayTeam"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_alignBaseline="@id/textViewWinPitcher"
+            android:layout_toEndOf="@id/textViewWinPitcher"
+            android:text="12 - 2" />
+
+
+        <TextView
+            android:id="@+id/textViewLoss"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textViewWin"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:text="@string/loss" />
+
+        <TextView
+            android:id="@+id/textViewLosePitcher"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textViewAwayTeam"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_alignBaseline="@id/textViewLoss"
+            android:layout_toEndOf="@id/textViewLoss"
+            android:text="Catfish Hunter" />
+
+        <TextView
+            android:id="@+id/textViewLossPitcherRec"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textViewAwayTeam"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_alignBaseline="@id/textViewLosePitcher"
+            android:layout_toEndOf="@id/textViewLosePitcher"
+            android:text="5 - 8" />
 
 
     </RelativeLayout>

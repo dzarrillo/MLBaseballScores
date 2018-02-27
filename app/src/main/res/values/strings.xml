@@ -7,4 +7,6 @@
     <string name="errors">E</string>
     <string name="date">date</string>
     <string name="ok">Ok</string>
+    <string name="win">Win</string>
+    <string name="loss">Loss</string>
 </resources>

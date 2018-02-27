@@ -38,6 +38,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.annotations.NonNull;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.functions.Consumer;
+import io.reactivex.functions.Function;
 import io.reactivex.schedulers.Schedulers;
 
 import static com.dzartek.mlbaseballscores.network.HttpManager.getData;
@@ -47,38 +48,44 @@ import static com.dzartek.mlbaseballscores.network.HttpManager.getData;
  */
 public class ScoresFragment extends Fragment implements TextView.OnTouchListener {
     private final String TAG = ScoresFragment.class.getName();
-    @BindView(R.id.textViewDate) TextView mTextViewDate;
-    @BindView(R.id.recyclerViewScores) RecyclerView mRecyclerViewScores;
+    @BindView(R.id.textViewDate)
+    TextView mTextViewDate;
+    @BindView(R.id.recyclerViewScores)
+    RecyclerView mRecyclerViewScores;
     private ScoresAdapter mScoresAdapter;
     private int year, month, day;
     private String sMonth, sDay;
     protected List<Baseball> mBaseballList = new ArrayList<>();
     private ProgressBar pb;
-    @NonNull private BaseballService mBaseballService;
-    @NonNull private CompositeDisposable mCompositeDisposable = new CompositeDisposable();
+    @NonNull
+    private BaseballService mBaseballService;
+    @NonNull
+    private CompositeDisposable mCompositeDisposable = new CompositeDisposable();
 
-    public interface OnTouchBaseballDate{
+    public interface OnTouchBaseballDate {
         void onTouchDate(int year, int month, int day);
     }
+
     private OnTouchBaseballDate mDateCallback;
 
-    public ScoresFragment(){}
+    public ScoresFragment() {
+    }
 
     @Override
-    public void onCreate(Bundle savedInstanceState)  {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         //String feeds = "http://gd2.mlb.com/components/game/mlb/year_2015/month_08/day_30/master_scoreboard.json";
 
 
-        if(this.getArguments() != null) {
+        if (this.getArguments() != null) {
             year = this.getArguments().getInt("Year", 0);
             month = this.getArguments().getInt("Month", 0);
             month += 1;
             day = this.getArguments().getInt("Day", 0);
         } else {
             year = Calendar.getInstance().get(Calendar.YEAR);
-            month = 1 + Calendar.getInstance().get(Calendar.MONTH );
+            month = 1 + Calendar.getInstance().get(Calendar.MONTH);
             day = Calendar.getInstance().get(Calendar.DAY_OF_MONTH);
         }
 
@@ -116,8 +123,6 @@ public class ScoresFragment extends Fragment implements TextView.OnTouchListener
     private void requestHttpManager(String feeds) {
         mCompositeDisposable.add(Observable.fromCallable(() -> {
             return HttpManager.getData(feeds);
-
-
         })
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
@@ -139,7 +144,10 @@ public class ScoresFragment extends Fragment implements TextView.OnTouchListener
                         dialog.setArguments(bundle);
                         dialog.show(getFragmentManager(), "DialogFragment");
                     }
+
                 }));
+
+
     }
 
     @Override
@@ -151,7 +159,7 @@ public class ScoresFragment extends Fragment implements TextView.OnTouchListener
         mTextViewDate.setText(myDate);
         mTextViewDate.setOnTouchListener(this);
 
-        if(savedInstanceState != null){
+        if (savedInstanceState != null) {
             mBaseballService = new BaseballRetrofit().getBaseballRxSingleService();
             requestBaseballScores();
         }
@@ -165,40 +173,40 @@ public class ScoresFragment extends Fragment implements TextView.OnTouchListener
     private void initializeRecyclerView() {
         mScoresAdapter = new ScoresAdapter(mBaseballList);
         mRecyclerViewScores.setLayoutManager(new LinearLayoutManager(getActivity(),
-                LinearLayoutManager.VERTICAL, false ));
+                LinearLayoutManager.VERTICAL, false));
         mRecyclerViewScores.setHasFixedSize(true);
         mRecyclerViewScores.setAdapter(mScoresAdapter);
     }
 
     private void requestBaseballScores() {
         mCompositeDisposable.add(mBaseballService.getBaseballScores()
-        .subscribeOn(Schedulers.io())
-        .observeOn(AndroidSchedulers.mainThread())
-        .subscribe(new Consumer<BaseballScores>() {
-                       @Override
-                       public void accept(BaseballScores baseballScores) throws Exception {
-                           if (baseballScores != null) {
-                               populateBaseballList(baseballScores);
-                           }
-                       }
-                   },
-                new Consumer<Throwable>() {
-                    @Override
-                    public void accept(Throwable throwable) throws Exception {
-                        Log.d(TAG, "RxJava2, HTTP Error: " + throwable.getMessage());
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Consumer<BaseballScores>() {
+                               @Override
+                               public void accept(BaseballScores baseballScores) throws Exception {
+                                   if (baseballScores != null) {
+                                       populateBaseballList(baseballScores);
+                                   }
+                               }
+                           },
+                        new Consumer<Throwable>() {
+                            @Override
+                            public void accept(Throwable throwable) throws Exception {
+                                Log.d(TAG, "RxJava2, HTTP Error: " + throwable.getMessage());
 
-                    }
-                }
+                            }
+                        }
 
-        ));
+                ));
     }
 
     private void populateBaseballList(BaseballScores baseballScores) {
         mBaseballList.clear();
-        if(baseballScores != null){
+        if (baseballScores != null) {
 
             Baseball baseball = new Baseball();
-        } else{
+        } else {
             DialogFragment dialog = new BaseDialogFragment();
             Bundle bundle = new Bundle();
             bundle.putString("TITLE", "Network Alert");
@@ -213,7 +221,7 @@ public class ScoresFragment extends Fragment implements TextView.OnTouchListener
 
     @Override
     public void onDestroy() {
-        if((mCompositeDisposable != null) && (!mCompositeDisposable.isDisposed())){
+        if ((mCompositeDisposable != null) && (!mCompositeDisposable.isDisposed())) {
             mCompositeDisposable.clear();
         }
         super.onDestroy();
@@ -225,9 +233,9 @@ public class ScoresFragment extends Fragment implements TextView.OnTouchListener
         //Make sure host implements the method
         try {
             mDateCallback = (OnTouchBaseballDate) activity;
-        } catch (Exception e){
+        } catch (Exception e) {
             throw new ClassCastException(activity.toString() +
-            " must implement OnSelectedBaseballDate");
+                    " must implement OnSelectedBaseballDate");
         }
     }
 
@@ -249,9 +257,9 @@ public class ScoresFragment extends Fragment implements TextView.OnTouchListener
         switch (v.getId()) {
             case R.id.textViewDate:
 
-                year=2015;
-                month=8;
-                day=30;
+                year = 2015;
+                month = 8;
+                day = 30;
 
                 // Send the event back to host
                 mDateCallback.onTouchDate(year, month, day);
@@ -270,7 +278,7 @@ public class ScoresFragment extends Fragment implements TextView.OnTouchListener
 
     private void updateDisplay() {
 
-        if(mBaseballList != null){
+        if (mBaseballList != null) {
             mScoresAdapter.updateData(mBaseballList);
         } else {
 //            Toast.makeText(getActivity(), "Data not available!", Toast.LENGTH_SHORT).show();
