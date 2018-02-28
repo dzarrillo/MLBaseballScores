@@ -64,8 +64,8 @@ public class BaseballJSONParser {
                 JSONObject objLPitcher = obj.getJSONObject("losing_pitcher");
                 baseball.setLosingPitcher(objLPitcher.getString("first")
                         + " " + objLPitcher.getString("last"));
-                baseball.setLosingWins(objWPitcher.getString("wins"));
-                baseball.setLosingLosses(objWPitcher.getString("losses"));
+                baseball.setLosingWins(objLPitcher.getString("wins"));
+                baseball.setLosingLosses(objLPitcher.getString("losses"));
 
                 // Get the status of the game
                 JSONObject objrStatus = obj.getJSONObject("status");
