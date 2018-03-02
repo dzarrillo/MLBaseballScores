@@ -13,6 +13,16 @@ public class Baseball {
     private String status;
     private String inning;
     private String inning_state;
+    private String homeHits;
+    private String awayHits;
+    private String homeErrors;
+    private String awayErrors;
+    private String winningPitcher;
+    private String winningWins;
+    private String winningLosses;
+    private String losingPitcher;
+    private String losingWins;
+    private String losingLosses;
 
 
     public String getInning_state() {
@@ -85,5 +95,85 @@ public class Baseball {
 
     public void setAwayScore(String awayScore) {
         this.awayScore = awayScore;
+    }
+
+    public String getHomeHits() {
+        return homeHits;
+    }
+
+    public void setHomeHits(String homeHits) {
+        this.homeHits = homeHits;
+    }
+
+    public String getAwayHits() {
+        return awayHits;
+    }
+
+    public void setAwayHits(String awayHits) {
+        this.awayHits = awayHits;
+    }
+
+    public String getHomeErrors() {
+        return homeErrors;
+    }
+
+    public void setHomeErrors(String homeErrors) {
+        this.homeErrors = homeErrors;
+    }
+
+    public String getAwayErrors() {
+        return awayErrors;
+    }
+
+    public void setAwayErrors(String awayErrors) {
+        this.awayErrors = awayErrors;
+    }
+
+    public String getWinningPitcher() {
+        return winningPitcher;
+    }
+
+    public void setWinningPitcher(String winningPitcher) {
+        this.winningPitcher = winningPitcher;
+    }
+
+    public String getWinningWins() {
+        return winningWins;
+    }
+
+    public void setWinningWins(String winningWins) {
+        this.winningWins = winningWins;
+    }
+
+    public String getWinningLosses() {
+        return winningLosses;
+    }
+
+    public void setWinningLosses(String winningLosses) {
+        this.winningLosses = winningLosses;
+    }
+
+    public String getLosingPitcher() {
+        return losingPitcher;
+    }
+
+    public void setLosingPitcher(String losingPitcher) {
+        this.losingPitcher = losingPitcher;
+    }
+
+    public String getLosingWins() {
+        return losingWins;
+    }
+
+    public void setLosingWins(String losingWins) {
+        this.losingWins = losingWins;
+    }
+
+    public String getLosingLosses() {
+        return losingLosses;
+    }
+
+    public void setLosingLosses(String losingLosses) {
+        this.losingLosses = losingLosses;
     }
 }

@@ -2,50 +2,60 @@
 <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/cardViewItemScores"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+
+    android:layout_margin="5dp"
+    android:elevation="4dp">
 
     <RelativeLayout
         android:id="@+id/relativeItemScores"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
 
+        >
 
         <TextView
-            android:id="@+id/textViewHomeTeam"
+            android:id="@+id/textViewStatus"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="28dp"
-            android:layout_marginTop="46dp"
-            android:text="Yankees" />
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="10dp"
+            android:text="Current" />
 
         <TextView
             android:id="@+id/textViewRun"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="36dp"
-            android:layout_marginTop="19dp"
-            android:layout_toEndOf="@+id/textViewHomeTeam"
+            android:layout_marginStart="100dp"
+            android:layout_marginTop="20dp"
             android:text="@string/runs" />
 
         <TextView
             android:id="@+id/textViewHits"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignTop="@+id/textViewRun"
-            android:layout_centerHorizontal="true"
+            android:layout_alignBaseline="@+id/textViewRun"
+            android:layout_toEndOf="@+id/textViewRun"
+            android:layout_marginStart="40dp"
             android:text="@string/hits" />
 
         <TextView
             android:id="@+id/textViewErrors"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignTop="@+id/textViewHits"
-            android:layout_marginStart="35dp"
+            android:layout_alignBaseline="@+id/textViewRun"
             android:layout_toEndOf="@+id/textViewHits"
+            android:layout_marginStart="40dp"
             android:text="@string/errors" />
+
+        <TextView
+            android:id="@+id/textViewHomeTeam"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textViewRun"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:text="Yankees" />
 
         <TextView
             android:id="@+id/textViewHscore"
@@ -72,13 +82,15 @@
             android:layout_alignStart="@+id/textViewErrors"
             android:text="0" />
 
+
         <TextView
             android:id="@+id/textViewAwayTeam"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignStart="@+id/textViewHomeTeam"
             android:layout_below="@+id/textViewHomeTeam"
-            android:layout_marginTop="18dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="10dp"
             android:text="Indians" />
 
         <TextView
@@ -104,6 +116,76 @@
             android:layout_alignBottom="@+id/textViewAwayTeam"
             android:layout_alignStart="@+id/textViewErrors"
             android:text="0" />
+
+        <TextView
+            android:id="@+id/textViewWin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textViewAwayTeam"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="2dp"
+
+            android:text="@string/win" />
+
+        <TextView
+            android:id="@+id/textViewWinPitcher"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textViewAwayTeam"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="2dp"
+            android:layout_alignBaseline="@id/textViewWin"
+            android:layout_toEndOf="@id/textViewWin"
+            android:text="Tom Seaver" />
+
+        <TextView
+            android:id="@+id/textViewWinPitcherRec"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textViewAwayTeam"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="2dp"
+            android:layout_alignBaseline="@id/textViewWinPitcher"
+            android:layout_toEndOf="@id/textViewHits"
+            android:text="12 - 2" />
+
+
+        <TextView
+            android:id="@+id/textViewLoss"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textViewWin"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:text="@string/loss" />
+
+        <TextView
+            android:id="@+id/textViewLosePitcher"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textViewAwayTeam"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_alignBaseline="@id/textViewLoss"
+            android:layout_toEndOf="@id/textViewLoss"
+            android:layout_alignStart="@+id/textViewWinPitcher"
+            android:text="Catfish Hunter" />
+
+        <TextView
+            android:id="@+id/textViewLossPitcherRec"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textViewAwayTeam"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:layout_alignBaseline="@id/textViewLosePitcher"
+            android:layout_toEndOf="@id/textViewHits"
+            android:text="5 - 8" />
     </RelativeLayout>
 
 </android.support.v7.widget.CardView>

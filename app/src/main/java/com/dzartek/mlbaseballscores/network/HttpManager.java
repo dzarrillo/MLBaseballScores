@@ -1,4 +1,4 @@
-package com.dzartek.mlbaseballscores;
+package com.dzartek.mlbaseballscores.network;
 
 import android.util.Base64;
 
