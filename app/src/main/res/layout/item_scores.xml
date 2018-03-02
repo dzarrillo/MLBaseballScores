@@ -2,13 +2,17 @@
 <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/cardViewItemScores"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+
+    android:layout_margin="5dp"
+    android:elevation="4dp">
 
     <RelativeLayout
         android:id="@+id/relativeItemScores"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
 
+        >
 
         <TextView
             android:id="@+id/textViewStatus"
@@ -120,7 +124,8 @@
             android:layout_below="@+id/textViewAwayTeam"
             android:layout_marginStart="10dp"
             android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"
+            android:layout_marginBottom="2dp"
+
             android:text="@string/win" />
 
         <TextView
@@ -130,7 +135,7 @@
             android:layout_below="@+id/textViewAwayTeam"
             android:layout_marginStart="10dp"
             android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"
+            android:layout_marginBottom="2dp"
             android:layout_alignBaseline="@id/textViewWin"
             android:layout_toEndOf="@id/textViewWin"
             android:text="Tom Seaver" />
@@ -142,9 +147,9 @@
             android:layout_below="@+id/textViewAwayTeam"
             android:layout_marginStart="10dp"
             android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"
+            android:layout_marginBottom="2dp"
             android:layout_alignBaseline="@id/textViewWinPitcher"
-            android:layout_toEndOf="@id/textViewWinPitcher"
+            android:layout_toEndOf="@id/textViewHits"
             android:text="12 - 2" />
 
 
@@ -163,11 +168,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/textViewAwayTeam"
-            android:layout_marginStart="10dp"
             android:layout_marginTop="5dp"
             android:layout_marginBottom="5dp"
             android:layout_alignBaseline="@id/textViewLoss"
             android:layout_toEndOf="@id/textViewLoss"
+            android:layout_alignStart="@+id/textViewWinPitcher"
             android:text="Catfish Hunter" />
 
         <TextView
@@ -179,10 +184,8 @@
             android:layout_marginTop="5dp"
             android:layout_marginBottom="5dp"
             android:layout_alignBaseline="@id/textViewLosePitcher"
-            android:layout_toEndOf="@id/textViewLosePitcher"
+            android:layout_toEndOf="@id/textViewHits"
             android:text="5 - 8" />
-
-
     </RelativeLayout>
 
 </android.support.v7.widget.CardView>

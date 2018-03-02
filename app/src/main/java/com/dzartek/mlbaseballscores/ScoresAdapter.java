@@ -51,6 +51,15 @@ public class ScoresAdapter extends RecyclerView.Adapter<ScoresAdapter.ScoresView
         holder.textViewAscore.setText(mBaseballList.get(holder.getAdapterPosition()).getAwayScore());
         holder.textViewAhits.setText(mBaseballList.get(holder.getAdapterPosition()).getAwayHits());
         holder.textViewAerrors.setText(mBaseballList.get(holder.getAdapterPosition()).getAwayErrors());
+
+        holder.textViewWinPitcher.setText(mBaseballList.get(holder.getAdapterPosition()).getWinningPitcher());
+        String wRecord = "(" + mBaseballList.get(holder.getAdapterPosition()).getWinningWins()
+                + " - " + mBaseballList.get(holder.getAdapterPosition()).getWinningLosses() + ")";
+        holder.textViewWinPitcherRec.setText(wRecord);
+        holder.textViewLosePitcher.setText(mBaseballList.get(holder.getAdapterPosition()).getLosingPitcher());
+        String lRecord = "(" + mBaseballList.get(holder.getAdapterPosition()).getLosingWins()
+                + " - " + mBaseballList.get(holder.getAdapterPosition()).getLosingLosses() +")";
+        holder.textViewLossPitcherRec.setText(lRecord);
     }
 
     @Override
@@ -74,6 +83,10 @@ public class ScoresAdapter extends RecyclerView.Adapter<ScoresAdapter.ScoresView
         @BindView(R.id.textViewAscore) TextView textViewAscore;
         @BindView(R.id.textViewAhits) TextView textViewAhits;
         @BindView(R.id.textViewAerrors) TextView textViewAerrors;
+        @BindView(R.id.textViewWinPitcher) TextView textViewWinPitcher;
+        @BindView(R.id.textViewWinPitcherRec) TextView textViewWinPitcherRec;
+        @BindView(R.id.textViewLosePitcher) TextView textViewLosePitcher;
+        @BindView(R.id.textViewLossPitcherRec) TextView textViewLossPitcherRec;
 
         public ScoresViewHolder(View itemView) {
             super(itemView);
